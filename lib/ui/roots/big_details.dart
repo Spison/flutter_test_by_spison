@@ -34,7 +34,7 @@ class Details extends StatelessWidget {
         appBar: AppBar(
           title: Text(point.counterparty.toString()),
         ),
-        backgroundColor: Colors.amber[100],
+        backgroundColor: Colors.grey[100],
         body: Column(
           children: [
             Container(),

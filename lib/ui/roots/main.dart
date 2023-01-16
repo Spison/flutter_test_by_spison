@@ -35,7 +35,7 @@ class _App extends State<App> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.amber[100],
+        backgroundColor: Colors.grey[200],
         appBar: AppBar(
           title: const Text("Маршрут на сегодня"),
         ),
