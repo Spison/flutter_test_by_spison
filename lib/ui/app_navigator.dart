@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test_by_spison/ui/roots/app.dart';
 import 'package:flutter_test_by_spison/ui/roots/loader.dart';
 
 class NavigationRoutes {
