@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_by_spison/models/point_model.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:provider/provider.dart';
 
 class Details extends StatelessWidget {
   const Details({super.key, required this.point});
@@ -13,22 +11,22 @@ class Details extends StatelessWidget {
 
     String order = "";
     if (point.getBioMaterial == true) {
-      order = order + "Забрать биоматериалы\n";
+      order = "$orderЗабрать биоматериалы\n";
     }
     if (point.getDocuments == true) {
-      order = order + "Забрать документы\n";
+      order = "$orderЗабрать документы\n";
     }
     if (point.getMaterial == true) {
-      order = order + "Забрать материалы\n";
+      order = "$orderЗабрать материалы\n";
     }
     if (point.giveBioMaterial == true) {
-      order = order + "Отдать материалы\n";
+      order = "$orderОтдать материалы\n";
     }
     if (point.giveDocuments == true) {
-      order = order + "Отдать документы\n";
+      order = "$orderОтдать документы\n";
     }
     if (point.giveMaterial == true) {
-      order = order + "Отдать материалы\n";
+      order = "$orderОтдать материалы\n";
     }
     order = order.substring(0, order.length - 1);
 
