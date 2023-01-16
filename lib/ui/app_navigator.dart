@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_by_spison/ui/roots/app.dart';
 import 'package:flutter_test_by_spison/ui/roots/loader.dart';
-import 'package:flutter_test_by_spison/details/big_details.dart';
 
 class NavigationRoutes {
   static const loaderWidget = "/";
@@ -31,10 +30,10 @@ class AppNavigator {
       case NavigationRoutes.loaderWidget:
         return PageRouteBuilder(
             pageBuilder: ((_, __, ___) => LoaderWidget.create()));
-      case NavigationRoutes.details:
-        return PageRouteBuilder(
-            pageBuilder: ((_, __, ___) =>
-                Details.create(context))); //добавить чуть позже
+      // case NavigationRoutes.details:
+      //   return PageRouteBuilder(
+      //       pageBuilder: ((_, __, ___) =>
+      //           Details.create(context))); //добавить чуть позже
       // case NavigationRoutes.app:
       //   return PageRouteBuilder(
       //       pageBuilder: ((_, __, ___) => App.create())); //добавить чуть позже

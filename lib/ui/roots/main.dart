@@ -3,6 +3,7 @@ import 'package:flutter_test_by_spison/models/point_model.dart';
 import 'package:flutter_test_by_spison/services/point_api_services.dart';
 import 'package:flutter_test_by_spison/ui/app_navigator.dart';
 import 'package:flutter_test_by_spison/ui/roots/app.dart';
+import 'package:flutter_test_by_spison/ui/roots/big_details.dart';
 import 'package:flutter_test_by_spison/ui/roots/loader.dart';
 
 void main() async {
@@ -54,73 +55,90 @@ class _App extends State<App> {
                   return ListView.builder(
                     itemCount: (snapshot.data!.length),
                     itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text(
-                          /*snapshot.data![index]?.counterparty*/
-                          snapshot.data![index]!.counterparty.toString() +
-                              snapshot.data![index]!.rowN.toString(),
-                          //"Заказчик: $snapshot.data[index].counterparty"
-                        ),
-                        subtitle: Text(
-                          snapshot.data![index]!.counterpartyAddress.toString(),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        leading: Container(
-                          width: 80,
-                          height: 30,
-                          decoration: BoxDecoration(
-                              color: Colors.amber,
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                //if(snapshot.data![index]!.getBioMaterial==true){const Icon(Icons.biotech);}
-                                snapshot.data![index]!.getBioMaterial == true
-                                    ? const Icon(
-                                        Icons.biotech,
-                                        color: Colors.black,
-                                        size: 20,
-                                      )
-                                    : const Icon(
-                                        Icons.biotech,
-                                        color: Colors.amber,
-                                        size: 0,
-                                      ),
-                                snapshot.data![index]!.getDocuments == true
-                                    ? const Icon(
-                                        Icons.document_scanner_outlined,
-                                        color: Colors.black,
-                                        size: 20,
-                                      )
-                                    : const Icon(
-                                        Icons.document_scanner_outlined,
-                                        color: Colors.amber,
-                                        size: 0,
-                                      ),
-                                snapshot.data![index]!.getMaterial == true
-                                    ? const Icon(
-                                        Icons.folder,
-                                        color: Colors.black,
-                                        size: 20,
-                                      )
-                                    : const Icon(
-                                        Icons.folder,
-                                        color: Colors.amber,
-                                        size: 0,
-                                      ),
-                                snapshot.data![index]!.giveMaterial == true
-                                    ? const Icon(
-                                        Icons.colorize,
-                                        color: Colors.black,
-                                        size: 20,
-                                      )
-                                    : const Icon(
-                                        Icons.colorize,
-                                        color: Colors.amber,
-                                        size: 0,
-                                      )
-                              ]),
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  Details(point: snapshot.data![index]!),
+                            ),
+                          );
+                          // AppNavigator.toDetails(snapshot.data![index]!);
+                        },
+                        child: Card(
+                          child: ListTile(
+                            title: Text(
+                              /*snapshot.data![index]?.counterparty*/
+                              snapshot.data![index]!.counterparty.toString() +
+                                  snapshot.data![index]!.rowN.toString(),
+                              //"Заказчик: $snapshot.data[index].counterparty"
+                            ),
+                            subtitle: Text(
+                              snapshot.data![index]!.counterpartyAddress
+                                  .toString(),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            leading: Container(
+                              width: 80,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                  color: Colors.amber,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    //if(snapshot.data![index]!.getBioMaterial==true){const Icon(Icons.biotech);}
+                                    snapshot.data![index]!.getBioMaterial ==
+                                            true
+                                        ? const Icon(
+                                            Icons.biotech,
+                                            color: Colors.black,
+                                            size: 20,
+                                          )
+                                        : const Icon(
+                                            Icons.biotech,
+                                            color: Colors.amber,
+                                            size: 0,
+                                          ),
+                                    snapshot.data![index]!.getDocuments == true
+                                        ? const Icon(
+                                            Icons.document_scanner_outlined,
+                                            color: Colors.black,
+                                            size: 20,
+                                          )
+                                        : const Icon(
+                                            Icons.document_scanner_outlined,
+                                            color: Colors.amber,
+                                            size: 0,
+                                          ),
+                                    snapshot.data![index]!.getMaterial == true
+                                        ? const Icon(
+                                            Icons.folder,
+                                            color: Colors.black,
+                                            size: 20,
+                                          )
+                                        : const Icon(
+                                            Icons.folder,
+                                            color: Colors.amber,
+                                            size: 0,
+                                          ),
+                                    snapshot.data![index]!.giveMaterial == true
+                                        ? const Icon(
+                                            Icons.colorize,
+                                            color: Colors.black,
+                                            size: 20,
+                                          )
+                                        : const Icon(
+                                            Icons.colorize,
+                                            color: Colors.amber,
+                                            size: 0,
+                                          )
+                                  ]),
+                            ),
+                          ),
                         ),
                       );
                     },
